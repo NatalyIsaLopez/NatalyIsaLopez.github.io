@@ -1,0 +1,40 @@
+.site-footer {
+  padding: 40px 0;
+  background-color: #ffffff; /* Or match your site's bottom color */
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Stacks the copyright and links */
+  align-items: center; /* Centers everything horizontally */
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  /* Fixed Color: Darker than the box but lighter than the main text */
+  color: #3d342a;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #d2b48c; /* Tan accent on hover */
+}

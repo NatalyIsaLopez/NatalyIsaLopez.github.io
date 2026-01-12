@@ -1,0 +1,125 @@
+.project-detail-page {
+  background: #fff;
+  padding-bottom: 100px;
+}
+
+/* Navigation */
+.project-nav {
+  padding: 40px 0;
+}
+.back-link {
+  text-decoration: none;
+  color: #888;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.back-link:hover {
+  color: #d2b48c;
+}
+
+/* Header */
+.project-header-simple {
+  padding-bottom: 60px;
+  border-bottom: 1px solid #eee;
+}
+.project-title-large {
+  font-family: "Fraunces", serif;
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+.project-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.project-meta-strip {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+.meta-item {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Body Narrative */
+.project-body {
+  padding-top: 80px;
+}
+.narrative-section {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+.narrative-section h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.narrative-section p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Responsive Grid for Columns */
+.narrative-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin: 80px 0;
+}
+.narrative-column h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+.narrative-column p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Images (Similar to Lab Style) */
+.project-image-container {
+  margin: 80px 0;
+  text-align: left;
+}
+.project-main-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  display: block;
+}
+.image-caption {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 15px;
+  font-style: italic;
+  border-left: 2px solid #d2b48c;
+  padding-left: 15px;
+}
+
+.verdict-section {
+  margin-top: 100px;
+}
+.verdict-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .narrative-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .project-title-large {
+    font-size: 2.5rem;
+  }
+  .project-meta-strip {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

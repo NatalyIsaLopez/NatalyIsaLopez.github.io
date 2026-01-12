@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cognitive Performance Pipeline | Nataly Lopez</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg-primary: #f7f3ef;
+        --accent-tan: #d2b48c;
+        --text-dark: #1a1a1a;
+        --text-muted: #6b6b6b;
+        --white: #ffffff;
+        --border: rgba(0, 0, 0, 0.08);
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-dark);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        line-height: 1.8;
+      }
+
+      .nav-minimal {
+        padding: 2.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .back-link {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: 1px;
+      }
+      .back-link:hover {
+        color: var(--accent-tan);
+      }
+      .logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .project-header {
+        max-width: 900px;
+        margin: 4rem auto 2rem auto;
+        padding: 0 2rem;
+      }
+      .badge {
+        color: var(--accent-tan);
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .project-header h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        line-height: 1.1;
+        margin-bottom: 2rem;
+      }
+
+      .content-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .narrative-section {
+        margin-bottom: 5rem;
+      }
+      .narrative-section h2 {
+        font-family: "Fraunces", serif;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .narrative-section p {
+        font-size: 1.15rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+      }
+
+      .viz-container {
+        margin: 3.5rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .viz-box {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+      }
+      .viz-box img {
+        width: 100%;
+        display: block;
+        height: auto;
+      }
+      .viz-caption {
+        padding: 1.2rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-align: center;
+        border-top: 1px solid var(--border);
+        font-style: italic;
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+
+      .decision-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 4rem 0;
+      }
+      .decision-card {
+        padding: 2.5rem;
+        background: #fafafa;
+        border-radius: 20px;
+        border-left: 4px solid var(--accent-tan);
+        border-top: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .decision-card h4 {
+        font-family: "Fraunces", serif;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+      .decision-card p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .results-highlight {
+        background: var(--text-dark);
+        color: white;
+        padding: 5rem 4rem;
+        border-radius: 32px;
+        text-align: center;
+        margin: 6rem 0;
+      }
+      .results-highlight h3 {
+        font-family: "Fraunces", serif;
+        color: var(--accent-tan);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .stats-summary {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+      }
+      .stat-pill {
+        background: #2a2a2a;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--accent-tan);
+        border: 1px solid #444;
+      }
+
+      .github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--white);
+        color: var(--text-dark);
+        padding: 18px 36px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+      .github-btn:hover {
+        background: var(--accent-tan);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* --- Improved Footer --- */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 6rem 2rem 4rem;
+        text-align: center;
+        background-color: var(--white);
+      }
+      .footer-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .footer-socials {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+      .footer-socials a {
+        color: var(--text-muted);
+        font-size: 1.2rem;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+      .footer-socials a:hover {
+        color: var(--accent-tan);
+        transform: translateY(-3px);
+      }
+      .footer-logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .copyright {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        .viz-container,
+        .decision-grid {
+          grid-template-columns: 1fr;
+        }
+        .full-width {
+          grid-column: span 1;
+        }
+        .results-highlight {
+          padding: 3rem 1.5rem;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-minimal">
+      <a href="index.html" class="back-link"
+        ><i class="fas fa-arrow-left"></i> Back to Work</a
+      >
+      <div class="logo">NATALY<span>.</span></div>
+    </nav>
+
+    <header class="project-header">
+      <span class="badge">Research RA • Bunge Laboratory</span>
+      <h1>Cognitive Performance Pipeline: Processing Behavioral Micro-Data</h1>
+    </header>
+
+    <main class="content-wrapper">
+      <section class="narrative-section">
+        <h2>The Experiment</h2>
+        <p>
+          At the Bunge Lab, we investigated how the brain processes
+          <strong>relational matching</strong>. Participants were shown sets of
+          shapes and colors and had to identify patterns. I specifically looked
+          at the difference between
+          <strong>first-order relations</strong> (e.g., matching shapes based on
+          a single shared color) and
+          <strong>second-order relations</strong> (integrating two relationships
+          to find a match).
+        </p>
+
+        <p>
+          The second-order tasks are significantly more taxing on cognitive
+          control. My goal was to build a pipeline that could ingest raw
+          trial-level data from over 100 participants and quantify the
+          performance gap between these conditions.
+        </p>
+
+        <div class="viz-container">
+          <div class="viz-box">
+            <img
+              src="images/RT-distribution_graph.png"
+              alt="Reaction Time Distribution"
+            />
+            <div class="viz-caption">
+              RT density shift: Quantifying the latency gap across tasks.
+            </div>
+          </div>
+          <div class="viz-box">
+            <img
+              src="images/Accuracybycondition_graph.png"
+              alt="Accuracy Comparison"
+            />
+            <div class="viz-caption">
+              Success rates for 1st vs 2nd-order matching.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="narrative-section">
+        <h2>My Decision Process</h2>
+        <p>
+          Behavioral data is inherently noisy. I approached the engineering
+          challenges with a focus on statistical integrity and reproducibility:
+        </p>
+
+        <div class="decision-grid">
+          <div class="decision-card">
+            <h4>Handling Outliers</h4>
+            <p>
+              I utilized within-participant winsorization rather than simple
+              exclusion. By capping extreme reaction times, I reduced the skew
+              from non-cognitive delays without sacrificing the trial's accuracy
+              data.
+            </p>
+          </div>
+          <div class="decision-card">
+            <h4>Within-Subject Normalization</h4>
+            <p>
+              To control for individual baseline speeds, I applied z-scoring.
+              This allowed me to isolate how much
+              <em>each specific participant</em> slowed down as cognitive demand
+              scaled.
+            </p>
+          </div>
+          <div class="decision-card">
+            <h4>Data Ingestion Strategy</h4>
+            <p>
+              I wrote a Python script to automate the concatenation of hundreds
+              of PsychoPy CSV logs. This ensured that every trial was merged
+              into a unified, tidy dataset regardless of session length.
+            </p>
+          </div>
+          <div class="decision-card">
+            <h4>Statistical Validation</h4>
+            <p>
+              Because RT data is typically skewed, I performed
+              log-transformations. This prepared the data for rigorous paired
+              t-tests, ensuring our findings on cognitive load were
+              mathematically sound.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="viz-container">
+        <div class="viz-box full-width">
+          <img
+            src="images/RT-patterns_graph.png"
+            alt="Participant Trajectories"
+          />
+          <div class="viz-caption">
+            Participant trajectories: The universal upward slope represents the
+            0.6s average increase in response time for second-order matching.
+          </div>
+        </div>
+      </div>
+
+      <section class="narrative-section">
+        <h2>The Verdict</h2>
+        <p>
+          My analysis confirmed the high cost of cognitive control. The
+          second-order condition required significantly more processing
+          time—<strong>roughly 0.6 seconds longer</strong> on average.
+        </p>
+        <p>
+          The data revealed a statistically reliable reduction in accuracy as
+          complexity increased. Using a paired t-test, I found a significant
+          difference in Mean RT ($t = -13.25$, $p < 0.0001$) and Accuracy ($p =
+          0.0005$), validating the measurable drop in both speed and success.
+        </p>
+
+        <div class="viz-box full-width">
+          <img
+            src="images/Accuracy-RT_graph.png"
+            alt="Statistical Correlation"
+          />
+          <div class="viz-caption">
+            Final summary correlating accuracy and RT across the cohort.
+          </div>
+        </div>
+      </section>
+
+      <section class="results-highlight">
+        <h3>Reproducible Research Workflow</h3>
+        <p>
+          I designed this pipeline to be modular, allowing the laboratory to
+          apply these cleaning and visualization methods to future relational
+          tasks.
+        </p>
+
+        <div class="stats-summary">
+          <span class="stat-pill">RT t = -13.25</span>
+          <span class="stat-pill">RT p < 0.0001</span>
+          <span class="stat-pill">Accuracy p = 0.0005</span>
+        </div>
+
+        <a
+          href="https://github.com/natalylopez"
+          class="github-btn"
+          target="_blank"
+        >
+          <i class="fab fa-github"></i> Examine My Code on GitHub
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <span class="footer-logo">NATALY.</span>
+        <div class="footer-socials">
+          <a
+            href="https://github.com/natalylopez"
+            target="_blank"
+            title="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://linkedin.com/in/natalylopez"
+            target="_blank"
+            title="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="mailto:your-email@berkeley.edu" title="Email"
+            ><i class="far fa-envelope"></i
+          ></a>
+        </div>
+        <p class="copyright">&copy; 2026 Nataly Lopez &bull; UC Berkeley</p>
+      </div>
+    </footer>
+  </body>
+</html>

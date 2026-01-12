@@ -1,0 +1,346 @@
+.home-page {
+  background-color: #fff;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.slider-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.arrow-btn {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+  background: #d2b48c;
+  transform: scale(1.1);
+}
+
+/* --- Journey Section Cleanup --- */
+.journey-section {
+  padding: 100px 0 60px 0;
+  background-color: #ffffff; /* Ensure background is solid */
+}
+
+.scroll-hint {
+  font-size: 0.85rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 3.5rem;
+  display: block;
+}
+
+.journey-slider-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 40px;
+  /* Hides scrollbar while keeping functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.journey-slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.journey-slider {
+  display: flex;
+  gap: 32px;
+  padding: 0 10%;
+  width: max-content;
+}
+
+.journey-card {
+  flex: 0 0 420px;
+  background: #ffffff; /* Solid white background stops cards from looking "piled up" */
+  border: 1px solid #eee;
+  padding: 40px;
+  border-radius: 28px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1; /* Keeps each card on its own layer */
+}
+
+.journey-card:hover {
+  border-color: #d2b48c;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.journey-bullets {
+  list-style-type: none; /* Removed standard bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.journey-bullets li {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+/* FIXED: Using a simple dot instead of an arrow to prevent "ghosting" artifacts */
+.journey-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background-color: #d2b48c;
+  border-radius: 50%;
+}
+
+/* --- Technical Stack Styling --- */
+.tech-stack-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.tech-category h4 {
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech-pill:hover {
+  border-color: #d2b48c;
+  background: #fdfaf5;
+  transform: translateY(-2px);
+}
+
+/* --- Technical Stack Styling (High Legibility & Refined Hover) --- */
+.tech-stack-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.tech-category h4 {
+  font-family: "Fraunces", serif;
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-pill {
+  padding: 10px 18px;
+  background: #f4f1ec; /* Light warm background */
+  border: 1px solid #e0ddd7;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3d342a; /* Deep brown/charcoal text for base state */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: default;
+}
+
+/* Updated Hover State: No White Text */
+.tech-pill:hover {
+  border-color: #d2b48c;
+  background: #d2b48c; /* Changes to your accent color */
+  color: #000000; /* Sharp black text for maximum readability */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(210, 180, 140, 0.3); /* Themed shadow */
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Mobile Responsiveness for Tech Grid */
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.projects-section .section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto; /* Added 4rem (64px) margin at the bottom */
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px; /* Increased gap between cards */
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  justify-content: center;
+  /* Extra safeguard: ensure no absolute positioning is pulling cards up */
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: Add a bit of space to the card hover so it doesn't jump too close to the text */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Ensure the cards themselves have a consistent size */
+.project-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto; /* Centers individual cards on mobile stacking */
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stacked on mobile */
+    max-width: 400px;
+  }
+}
+
+.connect-section {
+  padding: 60px 0 120px 0;
+}
+
+/* --- Connect Section Fixes --- */
+.connect-card {
+  background: #121212; /* Dark background */
+  color: #fff;
+  border-radius: 40px;
+  padding: 80px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically centers content and actions */
+}
+
+.connect-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns items to the right of the card */
+  gap: 20px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center; /* Ensures text is not "too high up" */
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #cccccc; /* Light gray to be visible against black */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #d2b48c; /* Changes to your tan accent on hover */
+}
+
+.separator {
+  color: #444; /* Subtle dark gray for the slash / */
+  font-weight: 300;
+}
+
+/* Mobile Fixes */
+@media (max-width: 960px) {
+  .connect-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 30px;
+  }
+
+  .connect-actions {
+    align-items: center;
+    margin-top: 30px;
+  }
+}
+
+.connect-title {
+  font-family: "Fraunces", serif;
+  font-size: 3.5rem;
+}
+.connect-title span {
+  color: #d2b48c;
+}
+
+.email-button {
+  background: #d2b48c;
+  color: #121212;
+  padding: 18px 36px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+.email-button:hover {
+  transform: translateY(-4px);
+}
