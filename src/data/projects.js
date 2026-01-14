@@ -85,4 +85,12 @@ export const projects = [
     stats: ["Target Users: 45k+", "Active Feature Leads: 3"],
     githubUrl: "https://github.com/natalylopez",
   },
+  {
+    id: "retention-ops",
+    title: "RetentionOps Intelligence",
+    category: "Machine Learning",
+    image: "/churn-thumb.png", // Make sure to add this image to your public folder!
+    path: "/projects/retention-ops",
+    description: "Predictive inference engine for proactive churn management.",
+  },
 ];

@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail"; // Bunge Lab Content
 import OCTOProject from "./pages/OCTOProject"; // Berkeley Mobile Content
-
+import RetentionProject from "./pages/RetentionProject"; //Project #3
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -38,6 +38,12 @@ function App() {
 
             {/* Path for Berkeley Mobile */}
             <Route path="/project/asuc-octo" element={<OCTOProject />} />
+
+            {/* Path updated for Rentention Project */}
+            <Route
+              path="/projects/retention-ops"
+              element={<RetentionProject />}
+            />
           </Routes>
         </main>
         <Footer />
