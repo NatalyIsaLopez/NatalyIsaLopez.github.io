@@ -88,8 +88,8 @@ export const projects = [
   {
     id: "retention-ops",
     title: "RetentionOps Intelligence",
-    category: "Machine Learning",
-    image: "/churn-thumb.png", // Make sure to add this image to your public folder!
+    category: "Machine Learning • Python",
+    image: "/images/RetentionOps.png",
     path: "/projects/retention-ops",
     description: "Predictive inference engine for proactive churn management.",
   },

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router, // Changed to HashRouter for GitHub Pages compatibility
   Routes,
   Route,
   useLocation,
@@ -14,7 +14,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail"; // Bunge Lab Content
 import OCTOProject from "./pages/OCTOProject"; // Berkeley Mobile Content
-import RetentionProject from "./pages/RetentionProject"; //Project #3
+import RetentionProject from "./pages/RetentionProject"; // Churn Intelligence
+
+// Scroll to Top Helper Component
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -33,17 +35,20 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            {/* Path updated to bunge-lab */}
+            {/* Bunge Lab Case Study */}
             <Route path="/project/bunge-lab" element={<ProjectDetail />} />
 
-            {/* Path for Berkeley Mobile */}
+            {/* Berkeley Mobile Case Study */}
             <Route path="/project/asuc-octo" element={<OCTOProject />} />
 
-            {/* Path updated for Rentention Project */}
+            {/* RetentionOps Case Study */}
             <Route
               path="/projects/retention-ops"
               element={<RetentionProject />}
             />
+
+            {/* Fallback to Home for broken links */}
+            <Route path="*" element={<Home />} />
           </Routes>
         </main>
         <Footer />

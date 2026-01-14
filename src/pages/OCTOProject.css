@@ -122,4 +122,46 @@
     flex-direction: column;
     gap: 15px;
   }
+
+  /* RetentionOps Specific: Risk Management Tiers */
+  .risk-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .tier-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #eee;
+  }
+
+  .tier-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+
+  .tier-stable {
+    border-left-color: #4caf50;
+  }
+  .tier-elevated {
+    border-left-color: #ffc107;
+  }
+  .tier-critical {
+    border-left-color: #f44336;
+  }
+
+  .tier-label {
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 80px;
+  }
 }
