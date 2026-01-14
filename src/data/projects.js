@@ -1,8 +1,8 @@
 export const projects = [
   {
     id: "bunge-lab",
-    link: "/project/bunge-lab",
-    image: "/images/RT-distribution_graph.png", // Added for the homepage card thumbnail
+    path: "/project/bunge-lab", // Matches App.jsx
+    image: "/images/RT-distribution_graph.png",
     badge: "Research RA • Bunge Laboratory",
     title: "Cognitive Performance Pipeline: Processing Behavioral Micro-Data",
     description:
@@ -53,8 +53,8 @@ export const projects = [
   },
   {
     id: "asuc-octo",
-    link: "/project/asuc-octo", // Essential for the homepage card to work
-    image: "/images/berkeley-mobile-logic.png", // Thumbnail for the homepage
+    path: "/project/asuc-octo", // Matches App.jsx
+    image: "/images/berkeley-mobile-logic.png",
     badge: "UI/UX & Backend • ASUC OCTO",
     title: "Berkeley Mobile: Student Hub",
     description:
@@ -87,10 +87,10 @@ export const projects = [
   },
   {
     id: "retention-ops",
-    title: "RetentionOps Intelligence",
-    category: "Machine Learning • Python",
+    path: "/projects/retention-ops", // Matches App.jsx (Note the 's')
     image: "/images/RetentionOps.png",
-    path: "/projects/retention-ops",
+    badge: "Machine Learning • Python",
+    title: "RetentionOps Intelligence",
     description: "Predictive inference engine for proactive churn management.",
   },
 ];

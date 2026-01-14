@@ -6,6 +6,10 @@ const ProjectCard = ({ project }) => {
   // Use the image defined in your projects.js data
   const thumbnail = project.image;
 
+  const handleClick = () => {
+    console.log("Navigating to:", project.path);
+  };
+
   return (
     <div className="project-card">
       <div className="project-img-box">
@@ -19,9 +23,11 @@ const ProjectCard = ({ project }) => {
       </div>
       <div className="project-content">
         <h3>{project.title}</h3>
-        <p>{project.category || project.badge}</p>
-        {/* We use project.path directly to ensure it matches App.jsx */}
-        <Link to={project.path} className="btn-view">
+        {/* Prioritize badge for consistency with Bunge/OCTO, fallback to category */}
+        <p className="project-badge">{project.badge || project.category}</p>
+
+        {/* We use project.path which now matches App.jsx exactly */}
+        <Link to={project.path} className="btn-view" onClick={handleClick}>
           View Project
         </Link>
       </div>
