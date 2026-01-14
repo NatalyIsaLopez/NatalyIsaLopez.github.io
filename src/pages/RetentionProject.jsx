@@ -41,12 +41,21 @@ const RetentionProject = () => {
           </p>
           <div style={{ marginTop: "1.5rem", display: "flex", gap: "20px" }}>
             <span
+              href="https://retentionopsinferenceengine.streamlit.app/"
+              target="_blank"
+              rel="noreferrer"
               className="back-link"
-              style={{ borderBottom: "2px solid #d2b48c", cursor: "pointer" }}
+              style={{
+                borderBottom: "2px solid #d2b48c",
+                textDecoration: "none",
+              }}
             >
               View Live App
             </span>
             <span
+              href="https://github.com/NatalyIsaLopez/RetentionOps_Inference_Engine"
+              target="_blank"
+              rel="noreferrer"
               className="back-link"
               style={{ borderBottom: "2px solid #d2b48c", cursor: "pointer" }}
             >
@@ -57,13 +66,16 @@ const RetentionProject = () => {
 
         <div className="viz-container">
           <div className="viz-box">
-            <img src="/RetentionOps.png" alt="Inference Engine UI" />
+            <img src="/images/RetentionOps.png" alt="Inference Engine UI" />
             <div className="viz-caption">
               The live production UI featuring real-time risk gauges.
             </div>
           </div>
           <div className="viz-box">
-            <img src="/ModelTraining.png" alt="SHAP Feature Importance" />
+            <img
+              src="/images/ModelTraining.png"
+              alt="SHAP Feature Importance"
+            />
             <div className="viz-caption">
               Global Feature Impact: Identifying primary drivers like
               TechSupport and Contract.
@@ -122,7 +134,7 @@ const RetentionProject = () => {
         <div className="viz-container">
           <div className="viz-box full-width">
             <img
-              src="/CustomerRetentionReport.png"
+              src="/images/CustomerRetentionReport.png"
               alt="SHAP Inference Report"
             />
             <div className="viz-caption">
@@ -197,7 +209,7 @@ const RetentionProject = () => {
             intelligence.
           </p>
           <a
-            href="https://github.com/NatalyIsaLopez"
+            href="https://github.com/NatalyIsaLopez/RetentionOps_Inference_Engine"
             target="_blank"
             rel="noreferrer"
             className="github-btn"
