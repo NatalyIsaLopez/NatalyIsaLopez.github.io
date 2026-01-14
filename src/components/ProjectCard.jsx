@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import "./ProjectCard.css";
 
 const ProjectCard = ({ project }) => {
-  // We use the first image from the visuals array as the thumbnail
-  const thumbnail =
-    project.visuals && project.visuals[0] ? project.visuals[0].url : null;
+  // Use the image defined in your projects.js data
+  const thumbnail = project.image;
 
   return (
     <div className="project-card">
@@ -20,8 +19,9 @@ const ProjectCard = ({ project }) => {
       </div>
       <div className="project-content">
         <h3>{project.title}</h3>
-        <p>{project.badge}</p> {/* Shows the "Bunge Lab" badge */}
-        <Link to={`/project/${project.id}`} className="btn-view">
+        <p>{project.category || project.badge}</p>
+        {/* We use project.path directly to ensure it matches App.jsx */}
+        <Link to={project.path} className="btn-view">
           View Project
         </Link>
       </div>
