@@ -26,9 +26,9 @@ const RetentionProject = () => {
 
       <div className="content-wrapper">
         <section className="narrative-section">
-          <h2>📌 Project Overview</h2>
+          <h2>Project Overview</h2>
           <p>
-            In the subscription economy, churn is the ultimate growth killer.
+            In the subscription economy, churn is a critical growth obstacle.
             This project involved the development of an{" "}
             <strong>end-to-end Machine Learning pipeline</strong> that
             identifies "at-risk" customers with high precision.
@@ -39,28 +39,29 @@ const RetentionProject = () => {
             simulate customer behavior and receive real-time strategic
             recommendations based on model output.
           </p>
-          <div style={{ marginTop: "1.5rem", display: "flex", gap: "20px" }}>
-            <span
-              href="https://retentionopsinferenceengine.streamlit.app/"
+
+          <div style={{ marginTop: "2rem", display: "flex", gap: "25px" }}>
+            <a
+              href="https://your-streamlit-link-here.streamlit.app/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              className="github-btn"
+              style={{ textDecoration: "none" }}
+            >
+              Launch Live App
+            </a>
+            <a
+              href="https://github.com/natalylopez"
+              target="_blank"
+              rel="noopener noreferrer"
               className="back-link"
               style={{
                 borderBottom: "2px solid #d2b48c",
                 textDecoration: "none",
               }}
             >
-              View Live App
-            </span>
-            <span
-              href="https://github.com/NatalyIsaLopez/RetentionOps_Inference_Engine"
-              target="_blank"
-              rel="noreferrer"
-              className="back-link"
-              style={{ borderBottom: "2px solid #d2b48c", cursor: "pointer" }}
-            >
               View Source Code
-            </span>
+            </a>
           </div>
         </section>
 
@@ -68,7 +69,8 @@ const RetentionProject = () => {
           <div className="viz-box">
             <img src="/images/RetentionOps.png" alt="Inference Engine UI" />
             <div className="viz-caption">
-              The live production UI featuring real-time risk gauges.
+              Production interface: Real-time risk probability and variable
+              simulation.
             </div>
           </div>
           <div className="viz-box">
@@ -77,21 +79,21 @@ const RetentionProject = () => {
               alt="SHAP Feature Importance"
             />
             <div className="viz-caption">
-              Global Feature Impact: Identifying primary drivers like
-              TechSupport and Contract.
+              Global Feature Impact: Identifying primary drivers like Contract
+              Type and Tenure.
             </div>
           </div>
         </div>
 
         <section className="narrative-section">
-          <h2>🏗️ Technical Architecture & Methodology</h2>
-          <h3>1. The Modeling Strategy: Why XGBoost?</h3>
+          <h2>Technical Architecture & Methodology</h2>
+          <h3>Modeling Strategy: Why XGBoost?</h3>
           <p>
             I selected <strong>Extreme Gradient Boosting (XGBoost)</strong> over
             traditional linear models. While Logistic Regression provides a
-            baseline, it struggles with non-linear feature interactions (e.g.,
-            the compounding risk of a high monthly charge combined with a
-            month-to-month contract).
+            baseline, it struggles with non-linear feature interactions—such as
+            the compounding risk of high monthly charges combined with
+            month-to-month contracts.
           </p>
           <ul className="journey-bullets" style={{ marginBottom: "2rem" }}>
             <li>
@@ -100,15 +102,15 @@ const RetentionProject = () => {
             </li>
             <li>
               <strong>Regularization:</strong> Utilized L1 (Lasso) and L2
-              (Ridge) to prevent overfitting.
+              (Ridge) within the framework to prevent overfitting.
             </li>
             <li>
               <strong>Optimization:</strong> Focused on minimizing Log-Loss to
-              ensure P(Churn) reflected actual risk.
+              ensure probability scores reflected actual risk.
             </li>
           </ul>
 
-          <h3>2. Data Engineering & Parity</h3>
+          <h3>Data Engineering & Parity</h3>
           <p>
             To ensure the model performed in production exactly as it did during
             training, I built a custom serialization pipeline:
@@ -118,14 +120,14 @@ const RetentionProject = () => {
               <h4>Feature Mapping</h4>
               <p>
                 Categorical variables were mapped into a serialized dictionary
-                to maintain encoding consistency across the pipeline.
+                to maintain encoding consistency across the inference pipeline.
               </p>
             </div>
             <div className="decision-card">
               <h4>Inference Latency</h4>
               <p>
                 Achieved sub-20ms response times by caching the model object
-                using Streamlit’s @st.cache_resource.
+                using Streamlit’s specialized resource caching.
               </p>
             </div>
           </div>
@@ -138,14 +140,14 @@ const RetentionProject = () => {
               alt="SHAP Inference Report"
             />
             <div className="viz-caption">
-              Local Interpretability: Breaking down why a specific customer
-              received their risk score.
+              Local Interpretability: Analyzing specific feature contributions
+              to an individual customer's risk score.
             </div>
           </div>
         </div>
 
         <section className="narrative-section">
-          <h2>🛡️ The Decision Engine: Threshold Calibration</h2>
+          <h2>Decision Engine: Threshold Calibration</h2>
           <p>
             In a business context, the cost of a False Negative is significantly
             higher than a False Positive. I implemented a tiered risk-management
@@ -177,39 +179,37 @@ const RetentionProject = () => {
               </span>
               <p>
                 <strong>P ≥ 50%:</strong> High-confidence churn prediction;
-                triggers automated retention offers and Senior Success Manager
-                outreach.
+                triggers automated retention offers.
               </p>
             </div>
           </div>
         </section>
 
         <section className="narrative-section">
-          <h2>🔬 Explainable AI (XAI) & Interpretability</h2>
+          <h2>Explainable AI (XAI) & Interpretability</h2>
           <p>
-            A model is only useful if it is trusted. I integrated a{" "}
-            <strong>Dynamic Feature Impact</strong> visualization that provides
-            "Local Interpretability." For every simulation, the engine
-            calculates which variables (Tenure, Monthly Charges, etc.) are
-            pushing the probability higher or lower.
+            A model is only useful if it is trusted. I integrated{" "}
+            <strong>Dynamic Feature Impact</strong> visualizations providing
+            Local Interpretability. For every simulation, the engine calculates
+            which variables are pushing the probability higher or lower,
+            allowing teams to understand the "why" behind the "who."
           </p>
         </section>
 
         <div className="results-highlight">
-          <h3>🛠️ Tech Stack & Key Achievements</h3>
+          <h3>Tech Stack & Key Achievements</h3>
           <div className="stats-summary">
             <span className="stat-pill">Python 3.12</span>
             <span className="stat-pill">XGBoost / Scikit-Learn</span>
-            <span className="stat-pill">Streamlit Cloud (CI/CD)</span>
+            <span className="stat-pill">Streamlit Cloud</span>
             <span className="stat-pill">Pickle Serialization</span>
           </div>
           <p style={{ marginBottom: "2rem", opacity: 0.9 }}>
-            Successfully transitioned a static notebook into a production-ready
-            application with reactive UI logic and actionable business
-            intelligence.
+            Transitioned a static Jupyter notebook into a production-ready
+            application that delivers instant, actionable business insights.
           </p>
           <a
-            href="https://github.com/NatalyIsaLopez/RetentionOps_Inference_Engine"
+            href="https://github.com/natalylopez"
             target="_blank"
             rel="noreferrer"
             className="github-btn"
