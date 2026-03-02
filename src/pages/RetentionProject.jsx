@@ -42,7 +42,7 @@ const RetentionProject = () => {
 
           <div style={{ marginTop: "2rem", display: "flex", gap: "25px" }}>
             <a
-              href="https://your-streamlit-link-here.streamlit.app/"
+              href="https://retentionopsinferenceengine.streamlit.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="github-btn"
@@ -51,7 +51,7 @@ const RetentionProject = () => {
               Launch Live App
             </a>
             <a
-              href="https://github.com/natalylopez"
+              href="https://github.com/NatalyIsaLopez/RetentionOps_Inference_Engine"
               target="_blank"
               rel="noopener noreferrer"
               className="back-link"
@@ -198,7 +198,15 @@ const RetentionProject = () => {
 
         <div className="results-highlight">
           <h3>Tech Stack & Key Achievements</h3>
-          <div className="stats-summary">
+          <div
+            className="stats-summary"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "10px",
+              marginBottom: "1.5rem",
+            }}
+          >
             <span className="stat-pill">Python 3.12</span>
             <span className="stat-pill">XGBoost / Scikit-Learn</span>
             <span className="stat-pill">Streamlit Cloud</span>
@@ -209,7 +217,7 @@ const RetentionProject = () => {
             application that delivers instant, actionable business insights.
           </p>
           <a
-            href="https://github.com/natalylopez"
+            href="https://github.com/NatalyIsaLopez/RetentionOps_Inference_Engine"
             target="_blank"
             rel="noreferrer"
             className="github-btn"
