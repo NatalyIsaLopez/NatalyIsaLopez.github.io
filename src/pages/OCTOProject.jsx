@@ -29,7 +29,7 @@ const OCTOProject = () => {
           <h2>The Objective</h2>
           <p>
             UC Berkeley students navigate a fragmented digital
-            ecosystem—separate platforms for dining, fitness, transit, and
+            ecosystem: separate platforms for dining, fitness, transit, and
             academic alerts. In collaboration with cross-functional product
             teams, I co-developed the initial{" "}
             <strong>low-fidelity wireframes and frontend architecture</strong>{" "}
@@ -38,7 +38,7 @@ const OCTOProject = () => {
           <p>
             Our mission was to centralize the "Cal experience" into a unified
             interface, streamlining real-time data for RSF gym capacity, campus
-            news, and mobile student credentials—all within one seamless
+            news, and mobile student credentials, all within one seamless
             interface.
           </p>
         </section>

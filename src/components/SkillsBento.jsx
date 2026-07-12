@@ -4,24 +4,26 @@ import "./SkillsBento.css";
 
 const SkillsBento = () => {
   return (
-    <section id="skills" className="container skills-section">
-      <h2 className="section-title">Technical & Strategic Stack</h2>
-      <div className="skills-bento">
-        {skillCategories.map((category, index) => (
-          <div key={index} className={`bento-item ${category.className}`}>
-            <h3>
-              <i className={category.icon} style={{ marginRight: "10px" }}></i>
-              {category.title}
-            </h3>
-            <div className="pills">
-              {category.skills.map((skill, i) => (
-                <span key={i}>{skill}</span>
-              ))}
-            </div>
+    <div className="skills-grid">
+      {skillCategories.map((category, index) => (
+        <div
+          key={index}
+          className={`skill-card card-surface ${category.className}`}
+        >
+          <div className="skill-card-title">
+            <span className="skill-icon" aria-hidden="true">
+              {category.icon}
+            </span>
+            <h3>{category.title}</h3>
           </div>
-        ))}
-      </div>
-    </section>
+          <div className="skill-pills">
+            {category.skills.map((skill, i) => (
+              <span key={i}>{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 

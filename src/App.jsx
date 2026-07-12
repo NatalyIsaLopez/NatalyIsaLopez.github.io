@@ -15,6 +15,7 @@ import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail"; // Bunge Lab Content
 import OCTOProject from "./pages/OCTOProject"; // Berkeley Mobile Content
 import RetentionProject from "./pages/RetentionProject"; // Churn Intelligence
+import QualcommProject from "./pages/QualcommProject"; // Qualcomm Edge AI Workflow
 
 // Scroll to Top Helper Component
 const ScrollToTop = () => {
@@ -45,6 +46,16 @@ function App() {
             <Route
               path="/projects/retention-ops"
               element={<RetentionProject />}
+            />
+
+            {/* Qualcomm Case Study */}
+            <Route
+              path="/work/qualcomm-edge-ai-workflow"
+              element={<QualcommProject />}
+            />
+            <Route
+              path="/project/qualcomm-edge-ai-workflow"
+              element={<QualcommProject />}
             />
 
             {/* Fallback to Home for broken links */}

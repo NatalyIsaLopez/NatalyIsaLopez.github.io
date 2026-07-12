@@ -1,42 +1,99 @@
-.skills-section {
-  padding: 50px 0;
-}
-
-.skills-bento {
+.skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
 }
 
-.bento-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  border: 1px solid rgba(210, 180, 140, 0.2);
-  transition: 0.4s;
+.skill-card {
+  padding: 1.35rem;
+  position: relative;
+  border-color: var(--border);
+  transition: all var(--transition-ease);
 }
 
-.bento-item:hover {
-  border-color: var(--accent-tan);
-  transform: translateY(-5px);
+.skill-card:hover,
+.skill-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(143, 29, 44, 0.32);
+  box-shadow: var(--shadow-hover);
 }
 
-.wide {
-  grid-column: span 2;
+.skill-card:hover .skill-icon,
+.skill-card:focus-within .skill-icon {
+  background: rgba(143, 29, 44, 0.12);
+  transform: scale(1.05);
 }
 
-.pills {
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0.8rem auto auto 0.8rem;
+  width: 2rem;
+  height: 2rem;
+  border-top: 1px solid rgba(143, 29, 44, 0.12);
+  border-left: 1px solid rgba(143, 29, 44, 0.12);
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+
+.skill-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.95rem;
+}
+
+.skill-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(143, 29, 44, 0.08);
+  color: var(--accent);
+  opacity: 1;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.skill-card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.skill-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 0.6rem;
 }
 
-.pills span {
-  padding: 6px 14px;
-  background: var(--bg-primary);
-  border-radius: 50px;
+.skill-pills span {
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(184, 138, 68, 0.12);
+  border: 1px solid rgba(184, 138, 68, 0.12);
+  color: var(--accent-dark);
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.84rem;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.skill-pills span:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 248, 238, 0.9);
+  border-color: rgba(143, 29, 44, 0.3);
+  box-shadow: 0 8px 24px rgba(143, 29, 44, 0.1);
+}
+
+@media (max-width: 760px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }

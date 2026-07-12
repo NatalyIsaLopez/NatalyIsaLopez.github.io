@@ -1,26 +1,39 @@
 export const skillCategories = [
   {
-    title: "ML & Data Science",
-    icon: "fas fa-brain",
-    skills: ["NLP", "Regression", "Stats Modeling", "NumPy", "pandas"],
+    title: "Build",
+    icon: "⌘",
+    skills: ["Python", "SQL", "JavaScript", "React", "FastAPI", "HTML/CSS"],
     className: "",
   },
   {
-    title: "Engineering",
-    icon: "fas fa-laptop-code",
-    skills: ["Python", "SQL", "React.js", "C++", "JavaScript"],
+    title: "Model",
+    icon: "◎",
+    skills: ["Scikit-learn", "XGBoost", "Pandas", "Docker", "GCP", "Streamlit"],
     className: "",
   },
   {
-    title: "Product Strategy",
-    icon: "fas fa-chart-line",
+    title: "Product",
+    icon: "✿",
     skills: [
-      "AI Governance",
-      "Risk Assessment",
-      "UI/UX Engineering",
       "Figma",
-      "Market Research",
+      "Jira",
+      "Git",
+      "User Research",
+      "Product Strategy",
+      "Agile",
     ],
-    className: "wide", // This maps to your CSS .wide class
+    className: "",
+  },
+  {
+    title: "Strategy",
+    icon: "✦",
+    skills: [
+      "Risk + Governance",
+      "Responsible AI",
+      "Market Analysis",
+      "Policy Context",
+      "Decision Systems",
+    ],
+    className: "",
   },
 ];

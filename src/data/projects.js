@@ -1,96 +1,80 @@
 export const projects = [
   {
-    id: "bunge-lab",
-    path: "/project/bunge-lab", // Matches App.jsx
-    image: "/images/RT-distribution_graph.png",
-    badge: "Research RA • Bunge Laboratory",
-    title: "Cognitive Performance Pipeline: Processing Behavioral Micro-Data",
+    id: "qualcomm",
+    title: "Qualcomm Edge AI Workflow",
+    roleSignal: "Machine Learning · AI Product",
+    impact: "Reduced ML setup time by 90%",
+    problem:
+      "Edge AI workstreams were fragmented across benchmarking, deployment, and developer enablement, making model evaluation slow and hard to operationalize.",
+    built:
+      "I benchmarked inference workflows, translated technical gaps into a developer-experience strategy, and shaped a Day 1 setup approach around reproducible tooling.",
     description:
-      "Developing a Python-based pipeline to process behavioral micro-data and quantify cognitive relational matching.",
-    experimentText: [
-      "At the Bunge Lab, we investigated how the brain processes relational matching. Participants were shown sets of shapes and colors and had to identify patterns.",
-      "The second-order tasks are significantly more taxing on cognitive control. My goal was to build a pipeline that could ingest raw trial-level data from over 100 participants.",
+      "Benchmarked edge inference workflows and translated technical gaps into a Day 1 developer experience strategy.",
+    image: "/images/ModelTraining.png",
+    tags: [
+      "Docker",
+      "Edge AI",
+      "INT4 Quantization",
+      "Benchmarking",
+      "Product Strategy",
     ],
-    visuals: [
-      {
-        url: "/images/RT-distribution_graph.png",
-        caption: "RT density shift: Quantifying the latency gap.",
-        fullWidth: false,
-      },
-      {
-        url: "/images/Accuracybycondition_graph.png",
-        caption: "Success rates for 1st vs 2nd-order matching.",
-        fullWidth: false,
-      },
-      {
-        url: "/images/RT-patterns_graph.png",
-        caption: "Universal upward slope represents the 0.6s average increase.",
-        fullWidth: true,
-      },
-    ],
-    decisions: [
-      {
-        title: "Handling Outliers",
-        desc: "Utilized within-participant winsorization rather than simple exclusion.",
-      },
-      {
-        title: "Within-Subject Normalization",
-        desc: "Applied z-scoring to control for individual baseline speeds.",
-      },
-      {
-        title: "Data Ingestion Strategy",
-        desc: "Automated concatenation of hundreds of PsychoPy CSV logs.",
-      },
-      {
-        title: "Statistical Validation",
-        desc: "Performed log-transformations to ensure mathematical integrity.",
-      },
-    ],
-    verdictText:
-      "My analysis confirmed the high cost of cognitive control. Using a paired t-test, I found a significant difference in Mean RT and Accuracy, validating the measurable drop in both speed and success.",
-    stats: ["RT $t = -13.25$", "RT $p < 0.0001$", "Accuracy $p = 0.0005$"],
-    githubUrl: "https://github.com/natalylopez",
+    path: "/work/qualcomm-edge-ai-workflow",
+    variant: "featured",
+    mediaFit: "contain",
   },
   {
-    id: "asuc-octo",
-    path: "/project/asuc-octo", // Matches App.jsx
-    image: "/images/berkeley-mobile-logic.png",
-    badge: "UI/UX & Backend • ASUC OCTO",
-    title: "Berkeley Mobile: Student Hub",
+    id: "berkeley-cto",
+    title: "Berkeley CTO Product Portfolio",
+    roleSignal: "Product Management · Frontend Systems",
+    impact: "20,000+ users",
+    problem:
+      "Berkeley organizations needed high-trust digital products that could move quickly across product, engineering, and user feedback loops.",
+    built:
+      "I led product lifecycle and engineering execution for React applications supporting major campus organizations, balancing delivery speed with long-term frontend quality.",
     description:
-      "Redesigning the student experience through a centralized campus app, integrating dining, schedules, and Cal 1 Card services.",
-    experimentText: [
-      "As part of the ASUC Office of the CTO, I am co-developing the official campus app for UC Berkeley students.",
-      "Our goal is to consolidate disparate campus resources—from dining menus to course schedules—into a single, high-performance mobile hub.",
-    ],
-    visuals: [
-      {
-        url: "/images/berkeley-mobile-logic.png",
-        caption: "System logic and API integration flow for campus resources.",
-        fullWidth: true,
-      },
-    ],
-    decisions: [
-      {
-        title: "User-Centric Navigation",
-        desc: "Designed a bottom-tab navigation to prioritize the most-used features like Cal 1 Card and Dining.",
-      },
-      {
-        title: "API Integration",
-        desc: "Architected backend connectors to pull real-time data from various campus APIs.",
-      },
-    ],
-    verdictText:
-      "The redesign focuses on reducing 'tab-fatigue' for students, creating a seamless mobile experience that feels native to the Berkeley brand.",
-    stats: ["Target Users: 45k+", "Active Feature Leads: 3"],
-    githubUrl: "https://github.com/natalylopez",
+      "Led product lifecycle and engineering execution for React applications supporting major Berkeley organizations.",
+    image: "/images/berkeley-mobile-lowfi.png",
+    tags: ["React", "Product Strategy", "User Retention", "Agile", "Figma"],
+    variant: "standard",
+    mediaFit: "cover",
   },
   {
     id: "retention-ops",
-    path: "/projects/retention-ops", // Matches App.jsx (Note the 's')
+    title: "RetentionOps Churn Intelligence Engine",
+    roleSignal: "Data Science · Product Analytics",
+    impact: "<20ms inference",
+    problem:
+      "Customer retention risk was distributed across signals, but teams lacked a lightweight way to turn it into intervention strategy.",
+    built:
+      "I built an XGBoost-powered what-if dashboard that surfaced retention risk tiers and made intervention planning tangible for product teams.",
+    description:
+      "Built an XGBoost-powered what-if dashboard that turns customer risk signals into tiered intervention strategy.",
     image: "/images/RetentionOps.png",
-    badge: "Machine Learning • Python",
-    title: "RetentionOps Intelligence",
-    description: "Predictive inference engine for proactive churn management.",
+    tags: [
+      "Python",
+      "XGBoost",
+      "Streamlit",
+      "Scikit-learn",
+      "Product Analytics",
+    ],
+    variant: "standard",
+    mediaFit: "cover",
+    mediaPosition: "left center",
+  },
+  {
+    id: "invariant",
+    title: "Invariant Risk-as-a-Service Platform",
+    roleSignal: "Software Engineering · Strategy",
+    impact: "Enterprise risk workflows",
+    problem:
+      "Structured risk assessment needed a more reliable way to connect analyst workflows, validation logic, and versioned decision support.",
+    built:
+      "I engineered backend and frontend workflows for validation, versioning, and analyst-facing decision support across a risk platform.",
+    description:
+      "Engineered backend and frontend workflows for structured risk assessment, validation, versioning, and analyst decision support.",
+    image: "/images/Screenshot 2026-01-13 at 9.27.36 PM.png",
+    tags: ["FastAPI", "JavaScript", "Pydantic", "SQLite", "REST APIs"],
+    variant: "dossier",
+    mediaFit: "contain",
   },
 ];

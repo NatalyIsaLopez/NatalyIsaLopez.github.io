@@ -2,199 +2,283 @@ import React from "react";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
 import Hero from "../components/Hero";
+import ExperienceSlider from "../components/ExperienceSlider";
+import SkillsBento from "../components/SkillsBento";
 import "./Home.css";
 
-const Home = () => {
-  const techStack = {
-    languages: ["Python", "SQL", "C++", "Java", "JavaScript", "HTML5/CSS3"],
-    frameworks: ["React.js", "React Native", "NumPy", "pandas"],
-    ai_data: [
-      "Machine Learning",
-      "NLP",
-      "Regression Analysis",
-      "Data Visualization",
-      "Algorithm Design",
-    ],
-  };
+const FlowerOrnamentSvg = () => (
+  <svg viewBox="0 0 420 980" preserveAspectRatio="xMidYMid meet">
+    <path
+      className="flower-line flower-stem"
+      d="M188 312 C156 430 138 526 168 618 C202 722 166 804 128 932"
+    />
+    <path
+      className="flower-line flower-stem-soft"
+      d="M205 322 C234 428 248 542 220 652 C198 742 216 820 262 940"
+    />
+    <path
+      className="flower-line"
+      d="M194 300 C135 266 108 212 134 174 C178 192 204 238 194 300Z"
+    />
+    <path
+      className="flower-line"
+      d="M204 293 C184 222 204 152 252 120 C276 178 260 246 204 293Z"
+    />
+    <path
+      className="flower-line"
+      d="M212 296 C266 230 330 214 388 246 C342 302 276 320 212 296Z"
+    />
+    <path
+      className="flower-line"
+      d="M198 304 C146 338 92 326 58 292 C108 258 160 264 198 304Z"
+    />
+    <path
+      className="flower-line"
+      d="M204 306 C236 352 236 404 200 454 C174 402 178 350 204 306Z"
+    />
+    <path
+      className="flower-line flower-detail"
+      d="M202 304 C214 250 228 188 252 120"
+    />
+    <path
+      className="flower-line flower-detail"
+      d="M204 304 C250 278 314 254 388 246"
+    />
+    <path
+      className="flower-line flower-detail"
+      d="M198 304 C158 290 108 288 58 292"
+    />
+    <path
+      className="flower-line flower-detail"
+      d="M196 302 C168 254 148 210 134 174"
+    />
+    <circle className="flower-dot" cx="202" cy="303" r="2" />
+    <circle className="flower-dot" cx="194" cy="296" r="1.5" />
+    <circle className="flower-dot" cx="211" cy="295" r="1.5" />
+    <circle className="flower-dot" cx="206" cy="312" r="1.4" />
+  </svg>
+);
 
-  const journey = [
+const Home = () => {
+  const featuredProject = projects.find(
+    (project) => project.variant === "featured",
+  );
+
+  const dossierProject = projects.find(
+    (project) => project.variant === "dossier",
+  );
+
+  const standardProjects = projects.filter(
+    (project) => project.variant === "standard",
+  );
+
+  const operatingModel = [
     {
-      date: "January 2025 — Present",
-      role: "UI/UX Engineer",
-      org: "ASUC OCTO",
-      bullets: [
-        "Collaborated with cross-functional product teams to deliver user-centered web experiences for 20,000+ UC Berkeley students.",
-        "Developed responsive front-end features using React.js and JavaScript, converting Figma wireframes into production-ready interfaces.",
-        "Integrated high-quality web interfaces with Git-based workflows to improve overall platform accessibility.",
-      ],
+      label: "Users",
+      copy: "Ambiguous human needs, institutional constraints, and decision pressure.",
     },
     {
-      date: "November 2025",
-      role: "Harvard WeCode Technology Fellow",
-      org: "Harvard WECode",
-      bullets: [
-        "Selected as a Technology Fellow for the largest student-led Women in Computer Science conference in the world.",
-        "Engaged with global tech leaders to promote gender diversity and inclusion within the software engineering industries.",
-        "Collaborated on technical workshops and initiatives aimed at bridging the gender gap in emerging technology fields.",
-      ],
+      label: "Workflows",
+      copy: "Product judgment that scopes the right problem and the right intervention.",
     },
     {
-      date: "May 2025 — August 2025",
-      role: "Data & Healthcare Market Research Intern",
-      org: "Datack Inc.",
-      bullets: [
-        "Conducted market research on 30+ global health and cognitive science startups, mapping industry trends.",
-        "Developed a data-driven startup evaluation framework combining quantitative metrics for strategic decisions.",
-        "Delivered 10 technical presentations to international teams, translating complex research into actionable insights.",
-      ],
+      label: "Models",
+      copy: "Technical depth that makes the system believable and usable.",
     },
     {
-      date: "January 2025 — Present",
-      role: "Research Assistant",
-      org: "Building Blocks of Cognition Laboratory",
-      bullets: [
-        "Led the design of behavioral and neuroimaging experiments (fMRI/eye tracking) for 100+ participants.",
-        "Applied statistical analysis and machine learning in Python (pandas, NumPy) to process complex behavioral datasets.",
-        "Built regression models to extract actionable cognitive insights to advance understanding of reasoning.",
-      ],
+      label: "Infrastructure",
+      copy: "Reliable implementation, data systems, and execution discipline.",
     },
     {
-      date: "October 2025",
-      role: "Team Captain (2nd Place)",
-      org: "Haas EGAL X WIB D.E.I Case Competition",
-      bullets: [
-        "Architected an AI-powered reverse mentorship platform leveraging NLP to improve generational diversity.",
-        "Designed matching algorithms optimizing mentor-mentee pairing based on skills, interests, and learning goals.",
-        "Increased engagement metrics by 35% through optimized algorithmic pairing and professional development.",
-      ],
+      label: "Institutions",
+      copy: "Responsible decision layers that account for trust, risk, and public impact.",
+    },
+  ];
+
+  const responsibleThemes = [
+    {
+      title: "Human-Centered AI",
+      body: "Designing systems that support real users, not abstract benchmarks.",
+    },
+    {
+      title: "Risk + Governance",
+      body: "Building decision tools with accountability, transparency, and context.",
+    },
+    {
+      title: "Public Interest Tech",
+      body: "Applying product and ML thinking to institutions that affect people’s lives.",
     },
   ];
 
   return (
     <div className="home-page">
+      <div
+        className="floral-ornament floral-ornament--primary"
+        aria-hidden="true"
+      >
+        <FlowerOrnamentSvg />
+      </div>
+
       <Hero />
 
-      {/* --- Professional Journey --- */}
-      <section className="journey-section">
+      <section className="section" id="work">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Professional Journey</h2>
-            <p className="scroll-hint">Scroll horizontally to explore →</p>
-          </div>
-        </div>
-
-        <div className="journey-slider-container">
-          <div className="journey-slider">
-            {journey.map((item, index) => (
-              <div className="journey-card" key={index}>
-                <span className="journey-date">{item.date}</span>
-                <h3 className="journey-role">{item.role}</h3>
-                <p className="journey-org">{item.org}</p>
-                <ul className="journey-bullets">
-                  {item.bullets.map((bullet, i) => (
-                    <li key={i}>{bullet}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- Technical Stack Section --- */}
-      <section className="tech-stack-section">
-        <div className="container">
-          <h2 className="section-title">Technical Expertise</h2>
-          <div className="tech-grid">
-            <div className="tech-category">
-              <h4>Languages</h4>
-              <div className="pill-container">
-                {techStack.languages.map((tech) => (
-                  <span key={tech} className="tech-pill">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="tech-category">
-              <h4>Frameworks & Libraries</h4>
-              <div className="pill-container">
-                {techStack.frameworks.map((tech) => (
-                  <span key={tech} className="tech-pill">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="tech-category">
-              <h4>AI & Data Science</h4>
-              <div className="pill-container">
-                {techStack.ai_data.map((tech) => (
-                  <span key={tech} className="tech-pill">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Selected Works --- */}
-      <section id="projects" className="projects-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Selected Works</h2>
-            <p className="section-description">
-              Research pipelines, data visualizations, and product experiments.
+          <div className="section-intro">
+            <p className="eyebrow">Selected Work</p>
+            <h2 className="section-title">Selected Work</h2>
+            <p>
+              Projects and systems across AI product, machine learning
+              infrastructure, data products, and decision support.
             </p>
           </div>
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+
+          <div className="work-gallery">
+            {featuredProject ? <ProjectCard project={featuredProject} /> : null}
+
+            <div className="work-grid">
+              {standardProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+
+            {dossierProject ? <ProjectCard project={dossierProject} /> : null}
           </div>
         </div>
       </section>
 
-      {/* --- Connect Section --- */}
-      <section className="connect-section" id="contact">
+      <section className="section section-soft" id="thinking">
         <div className="container">
-          <div className="connect-card">
-            <div className="connect-content">
-              <h2 className="connect-title">
-                Let’s Connect<span>.</span>
+          <div className="section-intro">
+            <p className="eyebrow">How I Think</p>
+            <h2 className="section-title">How I Think</h2>
+            <p>
+              My value is not only technical execution; it is the ability to
+              connect model behavior, product constraints, and institutional
+              context into clear action.
+            </p>
+          </div>
+
+          <div className="operating-model">
+            <div className="model-rail">
+              {operatingModel.map((step, index) => (
+                <div className="model-step" key={step.label}>
+                  <div className="model-index">0{index + 1}</div>
+                  <div className="model-body">
+                    <h3>{step.label}</h3>
+                    <p>{step.copy}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section responsible-section" id="responsible-systems">
+        <div className="container">
+          <div className="responsible-shell">
+            <div className="responsible-intro">
+              <p className="eyebrow">Responsible Systems</p>
+              <h2 className="section-title">
+                Thinking About Responsible Systems
               </h2>
-              <p className="connect-subtitle">
-                Currently seeking opportunities at the intersection of Data
-                Science and UI/UX.
+              <p>
+                Technology is never just technical. I’m interested in AI and
+                data systems that shape how people, companies, and institutions
+                make decisions, especially around access, risk, labor,
+                education, and public life.
               </p>
             </div>
 
-            <div className="connect-actions">
-              <a
-                href="mailto:nataly.lopez@berkeley.edu"
-                className="email-button"
-              >
-                nataly_lopez@berkeley.edu
+            <div className="responsible-grid">
+              {responsibleThemes.map((theme) => (
+                <article key={theme.title} className="responsible-card">
+                  <h3>{theme.title}</h3>
+                  <p>{theme.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft" id="experience">
+        <div className="container">
+          <div className="section-intro">
+            <p className="eyebrow">Experience</p>
+            <h2 className="section-title">Experience</h2>
+            <p>
+              A recruiter-facing snapshot of the product, technical, and
+              strategy work that shapes how I build.
+            </p>
+          </div>
+
+          <ExperienceSlider />
+        </div>
+      </section>
+
+      <section className="section skills-section" id="skills">
+        <div
+          className="floral-ornament floral-ornament--secondary"
+          aria-hidden="true"
+        >
+          <FlowerOrnamentSvg />
+        </div>
+
+        <div className="container">
+          <div className="section-intro">
+            <p className="eyebrow">Skills</p>
+            <h2 className="section-title">Skills</h2>
+            <p>
+              A compact view of the tools, languages, and methods I use to move
+              from problem framing to implementation.
+            </p>
+          </div>
+
+          <SkillsBento />
+        </div>
+      </section>
+
+      <section className="section" id="contact">
+        <div className="container">
+          <div className="contact-shell card-surface">
+            <div className="contact-copy">
+              <p className="eyebrow">Contact</p>
+              <h2 className="section-title">
+                Let’s build thoughtful AI and data products.
+              </h2>
+              <p>
+                I’m currently exploring roles where product judgment, technical
+                depth, and responsible systems thinking can compound in real
+                work.
+              </p>
+            </div>
+
+            <div className="contact-links">
+              <a href="mailto:nataly.lopez@berkeley.edu">
+                nataly.lopez@berkeley.edu
               </a>
-              <div className="social-links">
-                <a
-                  href="https://www.linkedin.com/in/natalyisabellopez"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-                <span className="separator">/</span>
-                <a
-                  href="https://github.com/NatalyIsaLopez"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/natalyisabellopez"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="/Nataly_Lopez_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Resume
+              </a>
+              <a
+                href="https://github.com/NatalyIsaLopez"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
             </div>
           </div>
         </div>

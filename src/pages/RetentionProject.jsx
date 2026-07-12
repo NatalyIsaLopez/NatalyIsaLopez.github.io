@@ -91,7 +91,7 @@ const RetentionProject = () => {
           <p>
             I selected <strong>Extreme Gradient Boosting (XGBoost)</strong> over
             traditional linear models. While Logistic Regression provides a
-            baseline, it struggles with non-linear feature interactions—such as
+            baseline, it struggles with non-linear feature interactions, such as
             the compounding risk of high monthly charges combined with
             month-to-month contracts.
           </p>

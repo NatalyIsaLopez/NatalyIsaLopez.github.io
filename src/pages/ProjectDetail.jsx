@@ -115,7 +115,7 @@ const ProjectDetail = () => {
           <h2>The Verdict</h2>
           <p>
             The second-order condition required significantly more processing
-            time—
+            time,{" "}
             <strong>roughly 0.6 seconds longer</strong> on average.
           </p>
           <p>
